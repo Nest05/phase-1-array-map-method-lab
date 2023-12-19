@@ -12,5 +12,16 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  // 1st we create a helper function toTitleCase that takes string as an argument and converts it to title case
+  const toTitleCase = (str) => {
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  }
+  return tutorials.map(tutorial => toTitleCase(tutorial));
 }
+
+console.log(titleCased());
+console.log(tutorials);
+
+// .spilt() is used to split the sentence into single words so as to be able to capitalize the 1st letter of each.
+// charAt points to the character you'd like to alter
+// .slice to replace non-destructively
